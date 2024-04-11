@@ -13,7 +13,8 @@ def main():  # Main function
             encoded_password = encode(password)
             print("Your password has been encoded and stored!\n")
         if selection == 2:
-            decode()
+            decoded_password = decode(encoded_password)
+            print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}")
         if selection == 3:
             break
 
@@ -26,6 +27,16 @@ def encode(password_in):  # Encoder function
     for i in password_int_list:
         password_out += str(i)
     return password_out
+
+# Anushka Kapoor (decode function)
+def decode(encoded_password):
+    password_out_list = [int(i) for i in encoded_password]
+    for i in range(len(password_out_list)):
+        password_out_list[i] -= 3
+    decode_password = ''
+    for i in password_out_list:
+        decode_password += str(i)
+    return decode_password
 
 
 if __name__ == '__main__':
